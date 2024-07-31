@@ -26,9 +26,9 @@ def draw(screen):
                 pygame.draw.rect(screen, (255, 255, 255), (i * w, gen * w, w, w))
 
     for i in range(0, width, w):
-        pygame.draw.line(screen, (100, 100, 100), (i, 0), (i, height))  # Vertical lines 
+        pygame.draw.line(screen, (180, 180, 180), (i, 0), (i, height))  # Vertical lines 
     for j in range(0, height, w):
-        pygame.draw.line(screen, (100, 100, 100), (0, j), (width, j))  # Horizontal lines
+        pygame.draw.line(screen, (180, 180, 180), (0, j), (width, j))  # Horizontal lines
 
     if generation < height // w:
         generate()
@@ -61,6 +61,28 @@ def is_valid_input(text):
     number = int(text)
     return 0 <= number <= 255
 
+def draw_input_area(screen, input_box, prompt_text, user_input, color, text_color, input_active):
+    font = pygame.font.Font(None, 35)
+    prompt_font = pygame.font.Font(None, 28)
+
+    # Draw background for input area
+    input_area_rect = pygame.Rect(0, 0, 400, 200)
+    input_area_rect.center = (width // 2, height // 2)
+    pygame.draw.rect(screen, pygame.Color('lightblue'), input_area_rect, border_radius=15)
+
+    # Draw prompt text
+    prompt_surface = prompt_font.render(prompt_text, True, text_color)
+    prompt_rect = prompt_surface.get_rect(center=(input_area_rect.centerx, input_area_rect.centery - 50))
+    screen.blit(prompt_surface, prompt_rect)
+
+    # Draw input box with rounded corners
+    pygame.draw.rect(screen, color, input_box, border_radius=10)
+    
+    # Draw input text
+    txt_surface = font.render(user_input, True, text_color)
+    txt_rect = txt_surface.get_rect(center=input_box.center)
+    screen.blit(txt_surface, txt_rect)
+
 def main():
     global ruleset, user_input, input_active
 
@@ -69,17 +91,15 @@ def main():
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Wolfram - Cellular Automata")
 
-    font = pygame.font.Font(None, 35)  
-    prompt_font = pygame.font.Font(None, 24) 
-    input_box = pygame.Rect(0, 0, 200, 40) 
+    input_box = pygame.Rect(0, 0, 220, 50)
     input_box.center = (width // 2, height // 2)  # Center the input box
 
-    color_inactive = pygame.Color('white')
-    color_active = pygame.Color('white')
+    color_inactive = pygame.Color('grey')
+    color_active = pygame.Color('dodgerblue')
     color = color_active if input_active else color_inactive
-    text_color = pygame.Color('white')  # Text color white
+    text_color = pygame.Color('black')  # Text color black
 
-    prompt_text = 'Enter  Ruleset (0 - 255):'
+    prompt_text = 'Enter Ruleset (0 - 255):'
 
     setup()
 
@@ -112,20 +132,10 @@ def main():
                     else:
                         user_input += event.unicode
 
-        screen.fill((0, 0, 0))
+        screen.fill((255, 255, 255))
 
         if input_active:
-            # Draw prompt text
-            prompt_surface = prompt_font.render(prompt_text, True, text_color)
-            screen.blit(prompt_surface, (input_box.x, input_box.y - 30))  # Draw above the input box
-
-            # Draw input box and text
-            txt_surface = font.render(user_input, True, text_color)
-            width_txt = max(200, txt_surface.get_width() + 10)
-            input_box.w = width_txt
-            input_box.centerx = width // 2  # Keep the box centered horizontally
-            screen.blit(txt_surface, (input_box.x + (input_box.w - txt_surface.get_width()) // 2, input_box.y + (input_box.h - txt_surface.get_height()) // 2))
-            pygame.draw.rect(screen, color, input_box, 2)
+            draw_input_area(screen, input_box, prompt_text, user_input, color, text_color, input_active)
         else:
             # Draw the grid and pattern
             draw(screen)
