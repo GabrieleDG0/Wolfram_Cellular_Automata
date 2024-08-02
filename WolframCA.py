@@ -37,10 +37,10 @@ def generate():
     global generation, cells
 
     nextgen = [0] * len(cells[0])
-    for i in range(1, len(cells[0]) - 1):
-        left = cells[generation][i - 1]
+    for i in range(len(cells[0])):
+        left = cells[generation][(i - 1) % len(cells[0])]
         me = cells[generation][i]
-        right = cells[generation][i + 1]
+        right = cells[generation][(i + 1) % len(cells[0])]
         nextgen[i] = rules(left, me, right)
 
     cells.append(nextgen)
