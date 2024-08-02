@@ -62,3 +62,5 @@ In A New Kind of Science and a series of other publications dating back to the m
 - Official site for research on Wolfram Cellular Automata: https://mathworld.wolfram.com/ElementaryCellularAutomaton.html
 - Wikipedia, if you want to learn more: https://en.wikipedia.org/wiki/Cellular_automaton
 - A new kind of science (by *Stephen Wolfram*): https://www.wolframscience.com/nks/
+
+Thanks and credit to the Wolfram Cellular Automata official site for the rules images.
