@@ -22,20 +22,9 @@ Rule 30, for example, is represented as 00011110 in binary numbers:
 - 110 -> **0**
 - 111 -> **0**
 
-***Overview of the implementation***
-
-This implementation of the Wolfram Cellular Automaton was created using Pygame, a popular library for creating games and multimedia applications in Python.
-
 ## Setup and initialization
-1) Initialization of Pygame: The Pygame library is initialized to process graphics and events.
-2) Color definitions: The colors for the cells and grid lines are defined.
-3) Screen and grid dimensions: The dimensions of the screen and the size of the grid are defined to create the game field.
-
-#### Drawing the grid
-Drawing the grid: Functions are provided for drawing the grid lines and cells on the screen. Live cells are drawn as filled squares.
-
-#### Game logic
-Update cells: Functions are provided to calculate the next state of the grid based on the current configuration of live and dead cells. This includes checking neighboring cells and applying the rules defined by the rule number specified by the user.
+The Pygame library is initialized to process graphics and events. Functions are provided for drawing the grid lines and cells on the screen. Live cells are drawn as filled squares.
+The application calculates the next state of the grid based on the current configuration of live and dead cells. This includes checking neighboring cells and applying the rules defined by the rule number specified by the user.
 
 ## User interaction
 Run the Python file and use the following commands:
