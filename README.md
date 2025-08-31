@@ -4,6 +4,9 @@
 Wolfram Cellular Automaton is a class of one-dimensional cellular automata developed by mathematician Stephen Wolfram. These automata are defined by a set of simple rules that determine the state of each cell based on its current state and the state of its immediate neighbors. In this implementation, users can enter a rule number (0-255) to observe different patterns and behaviors.
 
 **You can find a .exe file, inside the release section of Github, if you want to try the project, without needing to install Python, if you have a Windows system.**
+<p align="center">
+  <img width="999" height="515" alt="image" src="https://github.com/user-attachments/assets/f0edd99c-b855-40ae-9be1-b1af4d09f137" />
+</p>
 
 ## Rules
 The automaton works with a grid of cells, each of which can assume one of two states: alive (1) or dead (0). The state of each cell in the next generation is determined by the rule number specified by the user. The rule number is converted into an 8-bit binary number that defines the next state of a cell based on its current state and the states of its left and right neighbors.
