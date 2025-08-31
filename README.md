@@ -34,8 +34,7 @@ Run the Python file and use the following commands:
   - Enter: Starts the simulation with the rule number entered.
   - R key: Resets the simulation and allows you to enter a new rule number.
 
-#### Main loop
-Game loop: The main loop of the program controls the frame rate, checks for user input, updates the cell states and redraws the grid.
+The main loop of the program controls the frame rate, checks for user input, updates the cell states and redraws the grid.
 
 ## Applications and simulations
 The Wolfram Cellular Automaton, while simple, has profound implications and applications in various fields:
